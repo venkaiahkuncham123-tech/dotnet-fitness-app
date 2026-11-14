@@ -1,0 +1,150 @@
+:root {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+  --success: #059669;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --radius: 8px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+button:hover { background: #f1f5f9; }
+
+button.primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+button.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+button.danger {
+  background: #fff;
+  color: var(--danger);
+  border-color: #fecaca;
+}
+button.danger:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background: var(--panel);
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--muted); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+.page { animation: fadeIn 0.25s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.table { width: 100%; border-collapse: collapse; }
+.table th { text-align: left; padding: 0.75rem; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.table td { padding: 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+.table tr:last-child td { border-bottom: none; }
+.table tr:hover td { background: #f8fafc; }
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #eef2ff;
+  color: var(--accent);
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 2rem;
+}
+
+.form-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 640px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+.form-col { grid-column: 1 / -1; }
+@media (min-width: 640px) { .form-col { grid-column: 1 / -1; } }
+
+.actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+
+.navbar {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.navbar-inner { max-width: 1100px; margin: 0 auto; padding: 1rem; display: flex; align-items: center; gap: 2rem; }
+.brand { font-weight: 800; font-size: 1.25rem; color: var(--accent); }
+.nav-links { display: flex; gap: 1rem; margin-left: auto; }
+.nav-links a {
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.nav-links a:hover { background: #f1f5f9; border-color: var(--border); text-decoration: none; }
+.nav-links a.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.flash {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+.flash.error { background: #fef2f2; color: var(--danger); border: 1px solid #fecaca; }
+.flash.success { background: #f0fdf4; color: var(--success); border: 1px solid #bbf7d0; }
+
+.small { font-size: 0.85rem; color: var(--muted); }
+.mono { font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem; }
+
+@media (max-width: 640px) {
+  .container { padding: 1rem 0.75rem; }
+  .table { font-size: 0.85rem; }
+  .table th, .table td { padding: 0.5rem 0.4rem; }
+}
